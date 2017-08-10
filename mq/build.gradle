@@ -1,0 +1,38 @@
+buildscript {
+	ext {
+		springBootVersion = '1.4.2.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+
+jar {
+	baseName = 'mq'
+	version = '0.0.1-SNAPSHOT'
+}
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
+repositories {
+	mavenCentral()
+}
+
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter-activemq')
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+}
+
+bootRun {
+	if (project.hasProperty('AGENT_HOME')) {
+		jvmArgs = ["-Xdebug", "-agentlib:jdwp=transport=dt_socket,address=9993,server=y,suspend=n", "-javaagent:$AGENT_HOME/build/release/inspectit-agent.jar", "-Dinspectit.repository=localhost:9070", "-Dinspectit.agent.name=remote-mq", "-Dinspectit.logging.config=$AGENT_HOME/src/main/external-resources/logging-config.xml"]
+	}
+}

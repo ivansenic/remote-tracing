@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<profile xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" common="false" active="true" default="false" id="89e1bb41-dc31-46bf-baec-ab568beef72a" name="Remote projects" created-on="2016-11-28T19:17:35.180+01:00" updated-on="2017-01-26T15:29:19.038+01:00" revision="18" schemaVersion="2" xsi:noNamespaceSchemaLocation="../schema/ciSchema.xsd">
+    <sensor-assignment-profile-data>
+        <method-sensor-assignment sensor-config-class="rocks.inspectit.shared.cs.ci.sensor.method.impl.RemoteManualServerSensorConfig" method-name="index" constructor="false" public-mod="true" protected-mod="true" private-mod="true" default-mod="true" class-name="remote.controller.HelloController" superclass="false" interface="false"/>
+        <timer-method-sensor-assignment starts-invocation="true" min-invocation-duration="0" charting="false" sensor-config-class="rocks.inspectit.shared.cs.ci.sensor.method.impl.TimerSensorConfig" method-name="onMessage" parameters="javax.jms.Message" constructor="false" public-mod="true" protected-mod="true" private-mod="true" default-mod="true" class-name="javax.jms.MessageListener" superclass="false" interface="true"/>
+        <timer-method-sensor-assignment starts-invocation="true" min-invocation-duration="0" charting="false" sensor-config-class="rocks.inspectit.shared.cs.ci.sensor.method.impl.TimerSensorConfig" method-name="onMessage" parameters="javax.jms.Message javax.jms.Session" constructor="false" public-mod="true" protected-mod="true" private-mod="true" default-mod="true" class-name="javax.jms.MessageListener" superclass="false" interface="true"/>
+        <exception-sensor-assignment class-name="*NullPointerException" superclass="false" interface="false"/>
+    </sensor-assignment-profile-data>
+</profile>
