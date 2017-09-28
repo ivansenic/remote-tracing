@@ -1,5 +1,6 @@
 package remote;
 
+import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -18,6 +19,8 @@ public class SimpleJmsListener {
 	@JmsListener(destination = "myDestination")
 	public void processMessage(String content) {
 		System.out.println("Received message: " + content);
+
+		CompletableFuture.runAsync(() -> System.out.println("Hello from completable future"));
 
 		executor.execute(new Runnable() {
 
