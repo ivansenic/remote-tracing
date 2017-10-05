@@ -15,11 +15,12 @@ There are three projects that run in separate JVMs and communicate between each 
 
 Clients application can be used to call any url with different HTTP clients. Available are:
 
-* http://localhost:8002/apache?url= (Apache Http Client)
+* http://localhost:8002/apache?url= and http://localhost:8002/apache/async?url= (Apache Http Client & Aysnc Apache Http Client)
 * http://localhost:8002/jetty/async?url= (Jetty Http Client)
 * http://localhostL8002/url-connection?url= (Url Connection Java)
-* http://localhost:8002/springresttemplate?url= and http://localhost:8002/springresttemplate/async?url= (Spring Rest Template)
-* http://localhost:8002/all?url=? (uses all HTTP clients to execute a call)  
+* http://localhost:8002/springresttemplate?url= and http://localhost:8002/springresttemplate/async?url= (Spring Rest Template with URL Connection)
+* http://localhost:8002/springresttemplate/apache?url= (Spring Rest Template with Apache Http client)
+* http://localhost:8002/all?url=? (uses all HTTP clients to execute a call)
 
 If no url is specified, default url is http://localhost:8001/, which in facts calls the second application. You can also specify any url you like, but then your trace will end there.
 

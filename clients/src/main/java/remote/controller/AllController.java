@@ -36,12 +36,15 @@ public class AllController {
 	public String callBaseWithAllClients(@RequestParam(value = "url", defaultValue = "http://localhost:8001") String url)
 			throws ClientProtocolException, IOException, RestClientException, URISyntaxException, InterruptedException, TimeoutException, ExecutionException {
 		apacheController.callBase(url);
+		apacheController.callBaseAsync(url);
 		jettyController.callBase(url);
 		springController.callBase(url);
+		springController.callBaseAsync(url);
+		springController.callBaseWithApache(url);
 		urlConnectionController.callBase(url);
 
 		StringBuilder stringBuilder = new StringBuilder("<h1>Greetings from All Http Clients!</h1>");
-		stringBuilder.append("Used Apache, Jetty, Spring Rest Template and URL Connection to call " + url);
+		stringBuilder.append("Used Apache, Jetty, Spring Rest Template and URL Connection to call " + url + ". Total of 7 requests fired.");
 		return stringBuilder.toString();
 	}
 }
